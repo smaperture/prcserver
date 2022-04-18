@@ -1,0 +1,29 @@
+{
+  "root": "libs/rpc-server",
+  "projectType": "library",
+  "sourceRoot": "libs/rpc-server",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "libs/rpc-server",
+        "command": "go test ./... -cover -race"
+      }
+    },
+    "coverage": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "libs/rpc-server",
+        "command": "go test ./... -coverprofile=coverage.out && go tool cover -html=\"coverage.out\""
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "libs/rpc-server",
+        "command": "golangci-lint run"
+      }
+    }
+  },
+  "tags": []
+}
